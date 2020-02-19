@@ -1,0 +1,28 @@
+<div class="board-container centered">
+  <h1 class="board-container-title">대나무들 사이를 스치는 메아리 🍃</h1>
+  <table class="board-table table-centered" border="1">
+    <thead>
+      <tr>
+        <td id="board-head-id"><%#= ID %></td id="id">
+        <td id="board-head-title">제목</td>
+        <td id="board-head-author">작성자</td>
+        <td id="board-head-createdAt">작성일</td>
+        <td id="board-head-view">조회</td>
+        <td id="board-head-like">좋아요</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% if(result) { for(let i=0; i < result.length; i++){ %>
+
+      <tr class="board-body-data" data-id="<%= result[i].id %>">
+        <td class="board-body-number"><%= result.length-i %></td>
+        <td class="board-body-title"><%= result[i].title %></td>
+        <td><%= result[i].author %></td>
+        <td><%= result[i].createdAt %></td>
+        <td><%= result[i].views %></td>
+        <td><%= result[i].likes %></td>
+      </tr>
+      <% } } %>
+    </tbody>
+  </table>
+</div>
