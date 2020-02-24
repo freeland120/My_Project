@@ -3,14 +3,33 @@ import Home from "./Home";
 import SignUp from "./SignUp";
 import Product from "./Product";
 import Show from "./Show";
+import Login from "./Login";
+import LoginButton from "./LoginButton";
 import { Route, NavLink, HashRouter } from "react-router-dom";
 
 class App extends Component {
-  /* constructor(props) {
+  constructor(props) {
+    super(props);
     this.state = {
       visible: false
     };
-  } */
+
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.showMenu = this.showMenu.bind(this);
+  }
+
+  showMenu() {
+    this.setState({
+      visible: !this.state.visible
+    });
+  }
+
+  handleMouseDown(e) {
+    this.showMenu();
+    console.log("로그인 버튼을 클릭했습니다~");
+    e.stopPropagation();
+  }
+
   render() {
     return (
       <HashRouter>

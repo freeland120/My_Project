@@ -63,7 +63,7 @@ class SignUp extends Component {
             <input id="pw" ref={ref => (this.phoneE = ref)} />
             <br />
             <button
-              className="btn btn-primary btn-lg"
+              className="btn btn-warning btn-lg"
               onClick={this.memberSignup}
             >
               회원가입
