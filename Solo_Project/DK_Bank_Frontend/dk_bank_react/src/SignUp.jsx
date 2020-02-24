@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./css/signup.css";
+
 axios.defaults.withCredentials = true;
 const headers = { withCredentials: true };
 
@@ -9,14 +10,14 @@ class SignUp extends Component {
     name: ""
   };
 
-  memberInsert = () => {
+  memberSignup = () => {
     const send_param = {
       name: this.nameE.value,
       pw: this.pwE.value,
       email: this.emailE.value
     };
     axios
-      .post("http://localhost:8080/memeber/insert", send_param)
+      .post("http://localhost:8080/member/signup", send_param)
       .then(returnData => {
         console.log(returnData);
         if (returnData.data.message) {
@@ -39,36 +40,38 @@ class SignUp extends Component {
           <h2>{this.state.name}님 회원가입 해주셔서 감사합니다✅</h2>
         </div>
       );
-    }
+    } else {
+      return (
+        <div id="signup_header">
+          <div id="signup_content">
+            <h2>회원가입</h2>
 
-    return (
-      <div id="signup_header">
-        <div id="signup_content">
-          <h2>회원가입</h2>
-          <h4>다음 정보를 입력해주세요</h4>
-          <label htmlFor="name">이름</label>
-          <br />
-          <input id="name" ref={ref => (this.nameE = ref)} />
-          <br />
-          <label htmlFor="pw">패스워드</label>
-          <br />
-          <input id="pw" ref={ref => (this.pwE = ref)} />
-          <br />
-          <label htmlFor="pw">이메일</label>
-          <br />
-          <input id="pw" ref={ref => (this.emailE = ref)} />
-          <br />
-          <label htmlFor="pw">전화번호</label>
-          <br />
-          <input id="pw" ref={ref => (this.phoneE = ref)} />
-          <br />
-          <button className="signup_btn" onClick={this.memberInsert}>
-            회원가입
-          </button>
+            <label htmlFor="name">이름</label>
+            <br />
+            <input id="name" ref={ref => (this.nameE = ref)} />
+            <br />
+            <label htmlFor="pw">패스워드</label>
+            <br />
+            <input id="pw" type="password" ref={ref => (this.pwE = ref)} />
+            <br />
+            <label htmlFor="pw">이메일</label>
+            <br />
+            <input id="pw" ref={ref => (this.emailE = ref)} />
+            <br />
+            <label htmlFor="pw">전화번호</label>
+            <br />
+            <input id="pw" ref={ref => (this.phoneE = ref)} />
+            <br />
+            <button
+              className="btn btn-primary btn-lg"
+              onClick={this.memberSignup}
+            >
+              회원가입
+            </button>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
-
 export default SignUp;
