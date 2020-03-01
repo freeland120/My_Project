@@ -3,12 +3,12 @@
 ### 생성해야할 페이지 list
 
 - [ ] Home
-- [ ] Join
-- [ ] Login
-- [x] Search
+- [O] Join
+- [O] Login
+- [O] Search
 - [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
-- [ ] Upload
+- [O] Edit Profile
+- [O] Change Password
+- [O] Upload
 - [ ] Video Detail
-- [ ] Edit Video
+- [O] Edit Video
